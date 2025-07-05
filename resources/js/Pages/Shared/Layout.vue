@@ -1,9 +1,21 @@
 <script setup>
+import { ref, defineOptions } from "vue";
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
+import Banner from "../Components/Banner.vue";
 
+const test = () => {
+    Swal.fire({
+        title: "The Internet?",
+        text: "That thing is still around?",
+        icon: "question",
+    });
+};
 </script>
 
-
 <template>
-  <h1 class="text-3xl text-red-500">Hello world</h1>
-  <slot></slot>
+    <Banner />
+    <section class="px-10">
+        <slot />
+    </section>
 </template>
