@@ -15,7 +15,7 @@ const test = () => {
 
 <template>
     <Banner />
-    <section class="px-10">
+    <section class="lg:px-10 md:px-8 px-6 pt-22">
         <slot />
     </section>
 </template>

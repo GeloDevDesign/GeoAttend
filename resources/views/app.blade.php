@@ -8,7 +8,7 @@
     @routes
 </head>
 
-<body class="font-Montserrat"> 
+<body class="font-body"> 
     @inertia
 </body>
 

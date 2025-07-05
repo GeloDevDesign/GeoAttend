@@ -8,8 +8,9 @@ Route::get('/', function () {
     return Inertia::render('Views/Dashboard');
 });
 
-
-Route::get('/test', function () {
-    return Inertia::render('Components/Banner');
+Route::get('/attendance', function () {
+    return Inertia::render('Views/Attendance');
 });
+
+
 

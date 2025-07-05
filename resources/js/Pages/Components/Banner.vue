@@ -4,16 +4,45 @@ import { Menu } from "lucide-vue-next";
 </script>
 
 <template>
-    <div class="navbar bg-primary text-white border-b-6 border-accent px-8">
+    <div class="navbar bg-primary text-white border-b-6 border-accent px-8 fixed top-0">
         <div class="flex-1 items-center justify-center">
             <div class="flex items-center">
-                <button class="btn btn-ghost btn-sm"><Menu /></button>
+                <div class="drawer w-14">
+                    <input
+                        id="my-drawer"
+                        type="checkbox"
+                        class="drawer-toggle"
+                    />
+                    <div class="drawer-content">
+                        <!-- Page content here -->
+                        <label
+                            for="my-drawer"
+                            class="btn btn-ghost btn-sm drawer-button"
+                            ><Menu /></label
+                        >
+                    </div>
+                    <div class="drawer-side">
+                        <label
+                            for="my-drawer"
+                            aria-label="close sidebar"
+                            class="drawer-overlay"
+                        ></label>
+                        <ul
+                            class="menu bg-base-200 text-base-content min-h-full w-80 p-4"
+                        >
+                            <!-- Sidebar content here -->
+                            <li><a>Sidebar Item 1</a></li>
+                            <li><a>Sidebar Item 2</a></li>
+                        </ul>
+                    </div>
+                </div>
+              
                 <img
                     class="h-10 aspect-square"
                     src="https://national-u.edu.ph/wp-content/uploads/2018/12/cropped-NU-Shield_FC_RGB_POS_AW.png"
                     alt=""
                 />
-                <a class="btn btn-ghost text-lg" src="/public/favicon.ico"
+                <a class="btn btn-ghost text-lg text-base-100" src="/public/favicon.ico"
                     >COMEX LIPA</a
                 >
             </div>
@@ -22,7 +51,7 @@ import { Menu } from "lucide-vue-next";
             <div>
                 <p>Hi <span class="text-accent">Sigbin</span></p>
             </div>
-            <div class="dropdown dropdown-end">
+            <div class="dropdown dropdown-end text-black">
                 <div
                     tabindex="0"
                     role="button"
