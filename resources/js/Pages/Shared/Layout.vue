@@ -3,6 +3,7 @@ import { ref, defineOptions } from "vue";
 import Swal from "sweetalert2";
 import "sweetalert2/src/sweetalert2.scss";
 import Banner from "../Components/Banner.vue";
+import PrimaryButton from "../Components/PrimaryButton.vue";
 
 const test = () => {
     Swal.fire({
@@ -15,7 +16,10 @@ const test = () => {
 
 <template>
     <Banner />
+
     <section class="lg:px-10 md:px-8 px-6 pt-22">
+        <PrimaryButton name="test button" @click="test()" icon="Menu"/>
+
         <slot />
     </section>
 </template>
