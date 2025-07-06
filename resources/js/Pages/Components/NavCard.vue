@@ -7,9 +7,11 @@ import {ref} from "vue";
 <template>
 
   <div>
+    <!-- ICON -->
     <div></div>
     <div>
       <h4>Attendance</h4>
+      <p></p>
     </div>
   </div>
 
