@@ -14,18 +14,17 @@ const test = () => {
         icon: "question",
     });
 };
+
+const testButton = () => {
+    alert("hello world");
+};
 </script>
 
 <template>
     <Banner />
 
     <section class="lg:px-10 md:px-8 px-6 pt-22">
-        <PrimaryButton
-            name="test button"
-            @click="test()"
-            icon="Menu"
-            :disabled="true"
-        />
+        <PrimaryButton name="test button" @click="testButton()" />
         <PrimaryButton name="test button" @click="test()" icon="Pencil" />
         <slot />
     </section>
