@@ -5,10 +5,7 @@ import "sweetalert2/src/sweetalert2.scss";
 import Banner from "../Components/Banner.vue";
 import PrimaryButton from "../Components/PrimaryButton.vue";
 
-
 const isDisabled = ref(false);
-
-
 
 const test = () => {
     Swal.fire({
@@ -27,7 +24,6 @@ const test = () => {
             name="test button"
             @click="test()"
             icon="Menu"
-            iconSize="23"
             :disabled="true"
         />
         <PrimaryButton name="test button" @click="test()" icon="Pencil" />
