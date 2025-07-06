@@ -47,11 +47,6 @@ export function useAlertNotification() {
                 return "#424242";
         }
     };
-
-    // Helper function to determine icon color
-    const getIconColor = (icon) => {
-        return "#ffffff"; // White icons for better contrast
-    };
-
+    
     return { modalAlert, toastAlert };
 }
