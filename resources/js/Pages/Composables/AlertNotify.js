@@ -13,27 +13,26 @@ export function useAlertNotification() {
         });
     };
 
-    const toastAlert = (title, text, icon = "warning", color = null) => {
-        // Set background color based on icon type if color not specified
-        const bgColor = color || getBackgroundColor(icon);
-        const iconColor = getIconColor(icon);
+    const toastAlert = (title, text, icon = "warning") => {
 
+        const colorConfig = getBackgroundColor(icon);
         const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
-            background: bgColor,
-            iconColor: iconColor,
-            color: "#ffffff", // text color
-            iconSize: "10px",
+            background: colorConfig.bg,
+            iconColor: colorConfig.text,
+            color: colorConfig.text,
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
+            progressBarColor: colorConfig.bg
         });
 
         Toast.fire({
+            title: title || "Are you sure?",
             icon: icon,
-
             text: text || "",
+
         });
     };
 
@@ -41,17 +40,15 @@ export function useAlertNotification() {
     const getBackgroundColor = (icon) => {
         switch (icon) {
             case "success":
-                return "#4CAF50"; // Green
+               return { bg: "#e8fdf0", text:"#166534" };
             case "error":
-                return "#F44336"; // Red
+                return { bg: "#fee8e8", text: "#b91c1c" };
             case "warning":
-                return "#FF9800"; // Orange
+              return { bg: " #fef9e8", text: "#b45309" };
             case "info":
-                return "#2196F3"; // Blue
-            case "question":
-                return "#9C27B0"; // Purple
+                return { bg: "#e8f2fe", text: "#1d4ed8" };
             default:
-                return "#424242"; // Dark gray
+                return "#424242"; 
         }
     };
 
