@@ -5,6 +5,11 @@ import "sweetalert2/src/sweetalert2.scss";
 import Banner from "../Components/Banner.vue";
 import PrimaryButton from "../Components/PrimaryButton.vue";
 
+
+const isDisabled = ref(false);
+
+
+
 const test = () => {
     Swal.fire({
         title: "The Internet?",
@@ -18,8 +23,14 @@ const test = () => {
     <Banner />
 
     <section class="lg:px-10 md:px-8 px-6 pt-22">
-        <PrimaryButton name="test button" @click="test()" icon="Menu" />
-        <PrimaryButton name="test button" @click="test()" />
+        <PrimaryButton
+            name="test button"
+            @click="test()"
+            icon="Menu"
+            iconSize="23"
+            :disabled="true"
+        />
+        <PrimaryButton name="test button" @click="test()" icon="Pencil" />
         <slot />
     </section>
 </template>
