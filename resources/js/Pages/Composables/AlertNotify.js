@@ -1,41 +1,61 @@
 import Swal from "sweetalert2";
+import { ref } from "vue";
 
-import { ref, onMounted, onUnmounted } from "vue";
-
-// by convention, composable function names start with "use"
 export function useAlertNotification() {
-    // state encapsulated and managed by the composable
-    const x = ref(0);
-    const y = ref(0);
-
-    // a composable can update its managed state over time.
-    const modalAlert = (event) => {
+    const modalAlert = (title, text, icon = "warning") => {
         Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success",
-                });
-            }
+            title: title || "Are you sure?",
+            text: text || "You won't be able to revert this!",
+            icon: icon,
         });
     };
 
-    const toastAlert = () => {};
+    const toastAlert = (title, text, icon = "warning", color = null) => {
+        // Set background color based on icon type if color not specified
+        const bgColor = color || getBackgroundColor(icon);
+        const iconColor = getIconColor(icon);
 
-    // a composable can also hook into its owner component's
-    // lifecycle to setup and teardown side effects.
-    onMounted(() => window.addEventListener("mousemove", update));
-    onUnmounted(() => window.removeEventListener("mousemove", update));
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            background: bgColor,
+            iconColor: iconColor,
+            color: "#ffffff", // text color
+            iconSize: "10px",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+        });
 
-    // expose managed state as return value
-    return { x, y };
+        Toast.fire({
+            icon: icon,
+
+            text: text || "",
+        });
+    };
+
+    // Helper function to determine background color based on icon type
+    const getBackgroundColor = (icon) => {
+        switch (icon) {
+            case "success":
+                return "#4CAF50"; // Green
+            case "error":
+                return "#F44336"; // Red
+            case "warning":
+                return "#FF9800"; // Orange
+            case "info":
+                return "#2196F3"; // Blue
+            case "question":
+                return "#9C27B0"; // Purple
+            default:
+                return "#424242"; // Dark gray
+        }
+    };
+
+    // Helper function to determine icon color
+    const getIconColor = (icon) => {
+        return "#ffffff"; // White icons for better contrast
+    };
+
+    return { modalAlert, toastAlert };
 }
