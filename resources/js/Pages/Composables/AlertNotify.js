@@ -7,6 +7,9 @@ export function useAlertNotification() {
             title: title || "Are you sure?",
             text: text || "You won't be able to revert this!",
             icon: icon,
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 3000,
         });
     };
 
