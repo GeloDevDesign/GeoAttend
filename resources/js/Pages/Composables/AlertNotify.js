@@ -14,6 +14,7 @@ export function useAlertNotification() {
     };
 
     const toastAlert = (title, text, icon = "warning") => {
+
         const colorConfig = getBackgroundColor(icon);
         const Toast = Swal.mixin({
             toast: true,
@@ -30,6 +31,7 @@ export function useAlertNotification() {
             title: title || "Are you sure?",
             icon: icon,
             text: text || "",
+
         });
     };
 
@@ -37,15 +39,15 @@ export function useAlertNotification() {
     const getBackgroundColor = (icon) => {
         switch (icon) {
             case "success":
-                return { bg: "#e8fdf0", text: "#166534" };
+               return { bg: "#e8fdf0", text:"#166534" };
             case "error":
                 return { bg: "#fee8e8", text: "#b91c1c" };
             case "warning":
-                return { bg: " #fef9e8", text: "#b45309" };
+              return { bg: " #fef9e8", text: "#b45309" };
             case "info":
                 return { bg: "#e8f2fe", text: "#1d4ed8" };
             default:
-                return "#424242";
+                return "#424242"; 
         }
     };
 
