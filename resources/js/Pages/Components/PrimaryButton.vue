@@ -7,7 +7,7 @@ const props = defineProps({
         type: String,
     },
     icon: {
-        type: [String, Object], // Can be either string name or component
+        type: String,
     },
 });
 
@@ -20,8 +20,7 @@ const icons = {
 
 <template>
     <button class="btn btn-primary">
-        <component :is="icons[props.icon]" v-if="typeof props.icon === 'string'" />
-        <component :is="props.icon" v-else-if="props.icon" />
+        <component :is="icons[props.icon]" />
         {{ props.name || "No button name" }}
     </button>
 </template>

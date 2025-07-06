@@ -18,8 +18,8 @@ const test = () => {
     <Banner />
 
     <section class="lg:px-10 md:px-8 px-6 pt-22">
-        <PrimaryButton name="test button" @click="test()" icon="Menu"/>
-
+        <PrimaryButton name="test button" @click="test()" icon="Menu" />
+        <PrimaryButton name="test button" @click="test()" />
         <slot />
     </section>
 </template>
